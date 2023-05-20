@@ -19,7 +19,7 @@ const normalizePort = val =>{
 };
 
 //Choix du Port utilise
-const port = normalizePort(process.env.PORT || 3000)
+const port = normalizePort(process.env.PORT || 4000)
 app.set('port', port);
 
 //Recherche les differentes erreur
