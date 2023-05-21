@@ -6,10 +6,10 @@ const fs = require('fs');
 
 //Creation des livres
 exports.createBook = (req, res, next) =>{
-    console.log("BookObject creation");
+    //console.log("BookObject creation");
 
     const BookObject = JSON.parse(req.body.book);
-    console.log("BookObject", BookObject);
+    //console.log("BookObject", BookObject);
 
     delete BookObject._id;
     delete BookObject._userId;

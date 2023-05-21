@@ -23,7 +23,7 @@ exports.signup = (req, res, next) => {
 
        user.save()
         .then(() => {res.status(201).json({ message: 'Utilisateur créé !'}); console.log("Utilisateur créé !")})
-        .catch( error => {res.status(400).json({ error }); console.log("Impossible de creer l'utilisateur!!!"); console.log(error);})
+        .catch( error => {res.status(400).json({ error }); console.log("Impossible de creer l'utilisateur!!!"); /*console.log(error);*/})
     })
     .catch(error => {res.status(500).json({ error }); console.log("Erreur au niveeau hash ou envoie des donneés aux BD")});
 };
@@ -47,7 +47,6 @@ exports.login = (req, res, next) => {
                             'RANDOM_TOKEN_SECRET',
                             {expiresIn: '24h'}
                         )
-                        
                     });
                     //localStorage.setItem("token", token);
                 }
