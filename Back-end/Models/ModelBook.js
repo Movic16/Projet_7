@@ -10,10 +10,11 @@ const BookSchema = mongoose.Schema({
     genre:{ type: String, required: true },
     ratings:[
         {
+            userId:{ type: String, required: true },
             grade:{ type: Number, required: true },
         }
     ],
-    averageRating:{ type: String, required: true },
+    averageRating: { type: String, required: true },
 });
 
-module.exports = mongoose.model('ModelBook', BookSchema);
+module.exports = mongoose.model('Books', BookSchema);

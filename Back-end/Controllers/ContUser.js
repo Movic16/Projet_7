@@ -47,7 +47,9 @@ exports.login = (req, res, next) => {
                             'RANDOM_TOKEN_SECRET',
                             {expiresIn: '24h'}
                         )
+                        
                     });
+                    //localStorage.setItem("token", token);
                 }
             })
             .catch(error => {
