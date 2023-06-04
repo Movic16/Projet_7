@@ -13,11 +13,4 @@ router.get('/:id', bookCtrl.getOneBook); //Route recuperer une seul d'objet
 router.get('/', bookCtrl.getAllBooks); //Route recuperer tous les objets
 router.post('/:id/rating', auth, bookCtrl.postRating); //Définit la note pour le user ID fourni
 
-
-
-
-
-
-
-
 module.exports = router;

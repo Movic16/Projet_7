@@ -41,18 +41,25 @@ exports.imgUploader = multer({ storage, fileFilter: Filter}).single('image');
 
 exports.imgResize = async (req, res, next) => {
     //console.log("req", req);
-    const name = req.file.originalname.split(' ').join('_');
-    const extension = MIME_TYPES[req.file.mimetype];
-    const NewName = name + Date.now() + '.' + extension;
+    if (req.file) 
+    { 
+        const name = req.file.originalname.split(' ').join('_');
+        const extension = MIME_TYPES[req.file.mimetype];
+        const NewName = name + Date.now() + '.' + extension;
 
-    const path = `./Images/${NewName}`;
-    console.log("path", path);
+        const path = `./Images/${NewName}`;
+        console.log("path", path);
 
-    await sharp(req.file.buffer)
-        .resize(400, 450)
-        .toFile(path );
+        await sharp(req.file.buffer)
+            .resize(400, 450)
+            .toFile(path );
 
-    res.locals.NewName = NewName;
-    console.log("Image dimensionner");
-    next()
+        res.locals.NewName = NewName;
+        console.log("Image dimensionner");
+        next();
+    }
+    else
+    {
+        next();
+    }
 }

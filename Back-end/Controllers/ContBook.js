@@ -82,13 +82,18 @@ exports.deleteBook = (req, res, next) => {
 exports.getOneBook = (req, res, next) => {
     CreatBook.findOne({_id : req.params.id})
         .then(RecupBook => {
+            
             res.status(200).json(RecupBook);
+            //res.writeHead();
+            //res.end();
             //res.redirect('livre/{req.params.id}');
-            //location.reload(true); 
+            //location.reload(true);
             console.log("RecupBook", RecupBook);
             console.log("L'objet demander est bien trouver !");
+            
         })
         .catch(error => {res.status(400).json({ error }); console.log("L'objet demander n'est pas trouver !")});
+        //location.reload(); 
 };
 
 //Recupere tous les livres
@@ -148,5 +153,4 @@ exports.postRating = (req, res, next) => {
             }
         })
         .catch(error => {res.status(400).json({ error }); /*console.log(error);*/ console.log("Probleme au niveau rating ou auth")});
-
 };

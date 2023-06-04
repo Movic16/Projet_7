@@ -8,6 +8,7 @@ const booksRoutes = require('./Routes/Book');
 const userRoutes = require('./Routes/User');
 
 //Connexion a la base de donnees
+//Si vous souhaite utilise votre base de donnee remplacer uniquement cette partie 'mongodb+srv://Admin:admin@projet7.vralzjw.mongodb.net/P7?retryWrites=true&w=majority'
 mongoose.connect('mongodb+srv://Admin:admin@projet7.vralzjw.mongodb.net/P7?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true 
